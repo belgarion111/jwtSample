@@ -1,0 +1,4 @@
+/.idea/
+/servicejwt/target
+/webModule/node_modules/
+/webModule/.nuxt/
