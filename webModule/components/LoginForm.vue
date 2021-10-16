@@ -94,7 +94,9 @@ export default {
         //this.$axios.$post(`/api/login`,{data: this.login});
         //console.log(response);
         let response = await this.$auth.loginWith('local', {data: this.login})
-        console.log(response)
+        if(this.$auth.loggedIn){
+          this.$router.push({ name: 'inspire' })
+        }
       } catch (err) {
         console.log(err)
       }

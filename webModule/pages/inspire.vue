@@ -8,6 +8,8 @@
       >
       <blockquote class="blockquote">
         &#8220;First, solve the problem. Then, write the code.&#8221;
+
+        User: {{ $auth.user }}
         <footer>
           <small>
             <em>&mdash;John Johnson</em>
@@ -17,3 +19,9 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+export default {
+  middleware: ['authenticated'],
+}
+</script>

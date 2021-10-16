@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         var customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
         http.authorizeRequests().
-                antMatchers("/api/login/**", "/api/refreshToken/**").permitAll().
+                antMatchers("login","/api/login/**", "/api/refreshToken/**").permitAll().
                 antMatchers("/api/user/**").hasRole("USER").
                 antMatchers("/api/user/save/**").hasRole("ADMIN").
                 anyRequest().authenticated();

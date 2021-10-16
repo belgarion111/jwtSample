@@ -25,7 +25,12 @@ export default {
   target: 'static',
 
   generate: {
-    dir: 'C:\\Users\\XXXXXX\\AppData\\Roaming\\Apache24\\htdocs\\'
+    //dir: 'C:\\Users\\XXXXXX\\AppData\\Roaming\\Apache24\\htdocs\\',
+    dir : 'C:\\Users\\39349\\IdeaProjects\\jwtSample\\servicejwt\\src\\main\\resources\\STATIC',
+    cache: {
+      ignore: ['renovate.json'] // ignore changes applied on this file
+    },
+    devtools : true
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -47,6 +52,11 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next'
   ],
+
+
+  modules: [
+  ],
+
   // Modules: https://go.nuxtjs.dev/config-modules
   publicRuntimeConfig: {
     axios: {
@@ -63,17 +73,18 @@ export default {
     },
   },
 
-  modules: [
-    '@nuxtjs/proxy',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
-  ],
-
   // Auth settings
 
   auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      home: '/',
+      callback : '/inspire'
+    },
     strategies: {
       local: {
+        watchLoggedIn:true,
         token: {
           property: 'access_token',
           global: true,
@@ -89,6 +100,9 @@ export default {
         }
       }
     }
+  },
+
+  router: {
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -113,7 +127,10 @@ export default {
 
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
+  /**
   build: {
-    publicPath: 'http://localhost:8080'
+    publicPath: 'http://localhost:8080',
   }
+   **/
+
 }
